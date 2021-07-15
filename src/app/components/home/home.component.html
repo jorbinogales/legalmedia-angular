@@ -1,0 +1,39 @@
+<div class="">
+    <div class="row">
+        <div class="col-6">
+            <button>INICIO</button>
+        </div>
+        <div class="col-6">
+            <button>ABOGADOS</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <span>{{ activos }}</span> Abogados en linea
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="row">
+        <div class="col-12">
+            <form action="">
+                <div>
+                    <input type="text" placeholder="Pregunta a un abogado experto" #addQuestion>
+                </div>
+                <label for="">Tu pregunta se publicara de forma anonima</label>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+
+        </div>
+        <div class="col-4">
+            <button (click)="realizarPregunta(addQuestion.value)">Enviar Pregunta</button>
+        </div>
+    </div>
+</div>
+
+<app-preguntas></app-preguntas>
