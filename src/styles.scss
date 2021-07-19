@@ -1,10 +1,170 @@
-/* You can add global styles to this file, and also import other style files */
 :root {
-  blue-strong-bg: #00273f;
-  blue-bg: #003656;
-  yello-bg: #a67c00;
-  white-bg-gradient: rgba(0, 54, 86, 0.21);
+  --bg-blue-strong: #00273f;
+  --bg-blue: #003656;
+  --bg-gold: #a67c00;
+  --bg-gray: rgba(0, 39, 63, 0.25);
+  --radius: 25px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  max-width: 568px;
+  margin: auto;
+}
+
+.bg {
+  &.gradient-gold {
+    background: linear-gradient(to bottom, white 0%, var(--bg-gold) 100%);
+  }
+
+  &.gradient-white {
+    background: linear-gradient(to top, white 50%, #c9d4db 50%);
+  }
+
+  &.gold {
+    background: var(--bg-gold);
+  }
+  &.blue {
+    background-color: var(--bg-blue);
+  }
+  &.blue-strong {
+    background-color: var(--bg-blue-strong);
+  }
+}
+
+.btn {
+  &.btn-white {
+    color: var(--bg-blue-strong);
+    background-color: white;
+    &:hover {
+      color: var(--bg-blue-strong);
+    }
+  }
+
+  &.btn-blue-strong {
+    color: white;
+    background: var(--bg-blue-strong) !important;
+    &:hover {
+      color: white;
+    }
+  }
+
+  &.btn-gold {
+    color: white;
+    background: var(--bg-gold) !important;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.baged {
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 10px;
+
+  &.baged-blue-strong {
+    background-color: var(--bg-blue-strong);
+    color: white;
+  }
+}
+
+.target {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  overflow: hidden;
+  .target-body {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: 10px 10px;
+    background: white;
+  }
+}
+
+.text {
+  margin-top: 10px;
+  &.text-blue {
+    color: var(--bg-blue-strong);
+  }
+
+  &.text-right {
+    text-align: right;
+  }
+}
+
+.input {
+  input {
+    background-color: inherit;
+    outline: none;
+    border: none;
+    color: inherit;
+    display: block;
+    width: 90%;
+  }
+
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 25px;
+  color: white;
+
+  &.input-gold {
+    background-color: var(--bg-gold);
+    input {
+      color: white !important;
+      &::placeholder {
+        color: white;
+      }
+    }
+  }
+
+  .icon {
+    display: block;
+    width: 10%;
+    position: absolute;
+    right: 0px;
+  }
+}
+
+.line {
+  display: block;
+  height: 5px;
+  width: 100%;
+  &.line-gray {
+    background-color: var(--bg-gray);
+  }
+  &.line-blue-strong {
+    background-color: var(--bg-blue-strong);
+  }
+}
+
+.fade {
+  animation: fade 1s ease-in-out forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateX(25%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.border-radius {
+  border-radius: var(--radius);
+}
+
+.msg {
+  padding: 10px 10px;
+  max-width: 250px;
+  display: block;
+  margin: auto;
+  &.msg-blue {
+    background-color: var(--bg-blue-strong);
+    color: white;
+  }
+}

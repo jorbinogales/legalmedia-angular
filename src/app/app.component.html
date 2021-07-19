@@ -1,13 +1,9 @@
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      <app-navbar></app-navbar>
-          <mat-grid-list [cols]="breakpoint" rowHeight="2:0.5" (window:resize)="onResize($event)">
-                
-          </mat-grid-list>
-    </div>
 
-</mat-drawer-container>
+<app-navbar></app-navbar>
+<div class="container-fluid p-0 m-0 bg gold">
+    <router-outlet></router-outlet>
+</div>
+
+<app-preguntas></app-preguntas>
+<app-footer></app-footer>
+

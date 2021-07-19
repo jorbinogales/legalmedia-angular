@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  laywers: number = 125;
+
   constructor() { }
 
   ngOnInit(): void {

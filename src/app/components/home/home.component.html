@@ -1,7 +1,49 @@
 
-<mat-grid-tile>1</mat-grid-tile>
-<mat-grid-tile>2</mat-grid-tile>
-<mat-grid-tile>3</mat-grid-tile>
-<mat-grid-tile>4</mat-grid-tile>
+<div class="target">
+    <div class="target-body">
+        <form (ngSubmit)="next( form )" #form="ngForm" >
+            <label for="pregunta" class="input input-gold fade" *ngIf="position == 1">
+                <span class="icon icon-search"></span>
+                <input  type="text" 
+                        required
+                        placeholder="pregunta a un abogado experto" 
+                        id="pregunta" 
+                        [(ngModel)]="question.text"
+                        name="text"
+                        >
+            </label>
 
-<app-preguntas></app-preguntas>
+            <label for="email" class="input input-gold fade" *ngIf="position == 2">
+                <span class="icon icon-mail"></span>
+                <input type="email"
+                        placeholder="Introduce tu correo electronico"
+                        id="correo"
+                        required
+                        [(ngModel)]="people.email"
+                        name="email">
+            </label>
+
+            <div class="alert alert-success fade m-0 pb-0 pt-2 pl-2" *ngIf="position == 3 && send == true">
+                <p><span class="icon-check"></span> Su pregunta ha sido enviada</p>
+            </div>
+            <div class="alert alert-danger fade m-0 pb-0 pt-2 pl-2" *ngIf="position == 3 && send == false">
+                <p><span class="icon-x"></span> Ha ocurrido un error al enviar su pregunta</p>
+            </div>
+        </form>
+
+    
+        <b class="text text-blue text-center d-block mb-2">Tu pregunta sera publicada de forma anonima</b>
+
+        <div class="row p-0 m-0">
+            <div class="col-8">
+                <span class="line line-gray mt-4"></span>
+            </div>
+            <div class="col-4">
+                <button (click)="next( form )" class="btn btn-gold">Envia tu pregunta</button>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
