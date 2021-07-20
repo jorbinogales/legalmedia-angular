@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 /* ROUTES */
 import { APP_ROUTING } from './app.routes';
@@ -35,7 +36,7 @@ import { LawyerComponent } from './components/shared/lawyer/lawyer.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ HashLocationStrategy, HashLocationStrategy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
