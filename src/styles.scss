@@ -55,9 +55,20 @@ body {
       color: white;
     }
   }
+
+  &:hover {
+    background-color: var(--bg-gold);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 10px rgba(0, 39, 63, 0.25) !important;
+    transition: all 0.5s ease-in-out;
+    color: white !important;
+  }
 }
 
 .baged {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
   padding: 5px 10px;
   text-align: center;
   border-radius: 10px;
@@ -65,6 +76,11 @@ body {
   &.baged-blue-strong {
     background-color: var(--bg-blue-strong);
     color: white;
+  }
+
+  &.baged-white {
+    background-color: white;
+    color: var(--bg-blue-strong);
   }
 }
 
@@ -84,6 +100,10 @@ body {
 .text {
   margin-top: 10px;
   &.text-blue {
+    color: var(--bg-blue);
+  }
+
+  &.text-blue-strong {
     color: var(--bg-blue-strong);
   }
 
@@ -129,7 +149,7 @@ body {
 
 .line {
   display: block;
-  height: 5px;
+  min-height: 5px;
   width: 100%;
   &.line-gray {
     background-color: var(--bg-gray);
@@ -161,10 +181,82 @@ body {
 .msg {
   padding: 10px 10px;
   max-width: 250px;
+  min-height: 100px;
   display: block;
   margin: auto;
   &.msg-blue {
     background-color: var(--bg-blue-strong);
     color: white;
   }
+
+  .msg-title {
+    font-size: 15px !important;
+    color: white;
+  }
+
+  .msg-img {
+    display: block;
+    width: 100%;
+    margin: auto;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+  }
+
+  &.hover:hover {
+    background-color: var(--bg-blue);
+    transform: scale(1.1) !important;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
 }
+
+.alert {
+  display: block;
+  width: 80%;
+  margin: auto;
+  padding: 10px 5px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: alert 0.5s ease-in-out forwards;
+  &.alert-red {
+    background-color: #dc3545;
+    color: white;
+  }
+  &.alert-green {
+    background-color: #28a745;
+    color: white;
+  }
+  .icon {
+    margin: auto;
+    display: block;
+    font-size: 35px;
+    text-align: center;
+  }
+  .text {
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+@keyframes alert {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.width-full {
+  max-width: inherit !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";

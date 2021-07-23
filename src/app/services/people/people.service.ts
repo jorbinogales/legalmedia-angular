@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PeopleModel } from 'src/app/models/people.model';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -9,7 +10,6 @@ import { PeopleModel } from 'src/app/models/people.model';
 })
 export class PeopleService {
 
-  URL = 'http://127.0.0.1:8000'
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,7 @@ export class PeopleService {
       'email': People.email,
     }
 
-    return this.http.post(this.URL + '/api/people', send).toPromise();
+    return this.http.post(environment.apiUrl + '/people', send).toPromise();
   }
+  
 }

@@ -1,14 +1,21 @@
 
-<span class="line line-blue-strong"></span>
+<span class="line line-blue-strong">
+    <p class="bg blue-strong d-block w-100 text-white text-right p-2 pr-5">Preguntas Recientes</p>
+</span>
+
 <div class="row p-0 m-0 bg gradient-white">
+
     <div class="col-12">
 
-        <div class="msg msg-blue border-radius mt-5">
-            <div class="msg-body">  
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                   Praesentium dolorum facere, dolorem mollitia labore, ipsum nobis </p>
-                <button class="btn btn-white">Ver Pregunta</button>
+        <carousel>
+            <div class="carousel-cell" *ngFor="let pregunta of preguntas.data, index as i">
+                <div class="msg msg-blue border-radius mt-5">
+                    <div class="msg-body">
+                        <p>{{ pregunta.text }}</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </carousel>
+ 
     </div>
 </div>

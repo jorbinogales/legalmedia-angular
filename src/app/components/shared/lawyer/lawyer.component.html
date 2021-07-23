@@ -1,6 +1,28 @@
-<div class="card mt-2 mb-2" (click)="getLawyer()">
-    <div class="card-header">
-        <p class="card-title">{{ lawyer.name }}</p>
-        <span class="baged baged-blue-strong right">{{ lawyer.skill }}</span>
+<div class="msg msg-blue border-radius m-2 width-full fade fadeIn hover">
+    <div class="row">
+        <div class="col-3">
+            <img
+                class="msg-img" 
+                src="{{lawyer.picture ? env.storage + 'lawyers/' + lawyer.picture : 'assets/img/avatar.png'}}" 
+                onerror="this.src='assets/img/avatar.svg';">
+        </div>
+        <div class="col-9">
+            <h4 class="msg-title">{{ lawyer.first_name }} {{  lawyer.last_name }}</h4>
+
+            <div *ngIf="lawyer.skills.length != 0; else  withOutSkills">
+                <span  *ngFor="let lawyerSkill of lawyer.skills" class="baged baged-white right">
+                    <div *ngFor="let skill of skills">
+                        <div *ngIf="lawyerSkill.list_skill_id == skill.id">
+                                {{ skill.text }}
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <ng-template #withOutSkills>
+                <span class="baged baged-white right">
+                    Sin especializacion
+                </span>
+            </ng-template>
+        </div>
     </div>
 </div>

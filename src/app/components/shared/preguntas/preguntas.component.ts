@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from 'src/app/services/question/question.service';
 
 @Component({
   selector: 'app-preguntas',
@@ -6,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreguntasComponent implements OnInit {
 
-  constructor() { }
+  preguntas: any;
 
-  ngOnInit(): void {
+  constructor(private __questionService: QuestionService) { }
+
+  async ngOnInit() {
+
+    await this.getLastPreguntas();
+    
+  }
+
+  async getLastPreguntas() {
+    this.__questionService.lastQuestion()
+      .then(response => {
+        
+        this.preguntas = response;
+
+      });
   }
 
 }

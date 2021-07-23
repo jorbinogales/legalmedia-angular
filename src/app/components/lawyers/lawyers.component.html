@@ -1,11 +1,32 @@
 <div class="target">
     <div class="target-body">
-        <div class="row p-0 m-0">
-            <app-lawyer 
-                [lawyer]="i"
-                class="col-12"
-                *ngFor="let i of lawyers">
-            </app-lawyer>
+        <p class="text text-blue-strong text-center">Busca un abogado</p>
+        <label for="search" class="input input-gold fade w-75 m-auto">
+            <span class="icon icon-search"></span>
+            <input type="text" 
+                    placeholder="Busca a un abogado"
+                    id="buscar"
+                    (keypress)="searchLawyer()"
+                    [(ngModel)]="search.first_name"
+                    name="first_name">
+        </label>
+
+        <p class="text text-blue-strong text-center">Resultados de Busqueda</p>
+        <div *ngIf="!loading; else lawyersTemplate">
+            <div class="row p-0 m-0" *ngIf="lawyers.length > 0; else noResults">
+                <app-lawyer [lawyer]="i" [skills]="listSkill" class="col-12" *ngFor="let i of lawyers">
+                </app-lawyer>
+            </div>
+            <ng-template #noResults>
+                <div class="alert alert-red">
+                    <span class="icon icon-exclamation"></span>
+                    <p class="text">No se han encontrado resultados</p>
+                </div>
+            </ng-template>
         </div>
+        <ng-template #lawyersTemplate>
+            <app-loading></app-loading>
+        </ng-template>
+        
     </div>
 </div>

@@ -1,42 +1,51 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LawyerModel } from 'src/app/models/lawyer.model';
+import { environment } from 'src/environments/environment';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LawyerService {
 
-  constructor() {}
+  constructor(private http: HttpClient) { }
 
-  private lawyers: LawyerModel[] = [
-    {
-      id: 55,
-      name: 'Claudia Vazquez',
-      img: 'claudia.jpg',
-      skill: 'familia',
-    },
-    {
-      id: 22,
-      name: 'Vladimir Colmenarez',
-      img: 'vladimir.jpg',
-      skill: 'Terrorismo',
-    },
-    {
-      id: 18,
-      name: 'Jonathan Gazzillo',
-      img: 'jonathan.jpg',
-      skill: 'Migracion',
-    },
-    {
-      id: 11,
-      name: 'Jorbi Nogales',
-      img: 'jorbi.jpg',
-      skill: 'Tecnologia',
-    },
-  ];
+  getLawyer() {
 
-  getLaywers(): LawyerModel[] {
-    return this.lawyers;
+    return this.http.get(environment.apiUrl + '/lawyer').pipe(
+      map(
+        this.lawyersArr,
+        delay(0)
+      )
+    );
+
   }
+
+  async searchLawyer(Lawyer: Object) {
+    return this.http.post(environment.apiUrl + '/lawyer/search', Lawyer).pipe(
+      map(
+        this.lawyersArr,
+        delay(0),
+       )
+     )
+  }
+
+  private lawyersArr(LawyerObj: any) {
+
+    const lawyers: LawyerModel[] = [];
+
+    Object.keys(LawyerObj.data).forEach(key => {
+
+      const lawyer: LawyerModel = LawyerObj.data[key];
+
+      lawyers.push(lawyer);
+      
+    });
+
+    return lawyers;
+    
+  }
+
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { QuestionService } from 'src/app/services/question/question.service';
 import { QuestionModel } from 'src/app/models/question.model';
 
@@ -8,6 +9,8 @@ import { PeopleModel } from 'src/app/models/people.model';
 
 
 import { NgForm } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+
 
 
 
@@ -17,6 +20,7 @@ import { NgForm } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
+  loading: boolean = true;
   send: any;
   position: number = 1;
   
@@ -24,9 +28,12 @@ export class HomeComponent implements OnInit {
   people = new PeopleModel();
 
   constructor(private __questionService: QuestionService,
-              private __peopleService: PeopleService) { }
+              private __peopleService: PeopleService) {
+    console.log(environment.production);
+  }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.loading = false;
   }
 
   async next(Form: NgForm) {
@@ -34,6 +41,8 @@ export class HomeComponent implements OnInit {
     if (Form.invalid) {
       console.log('formulario invalido');
     } else {
+
+      this.loading = true;
 
       switch (this.position) {
           
@@ -52,6 +61,8 @@ export class HomeComponent implements OnInit {
         }
       
       this.position++;
+      
+      this.loading = false;
 
     }
   

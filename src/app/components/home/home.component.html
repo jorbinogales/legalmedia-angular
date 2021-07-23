@@ -1,37 +1,37 @@
 
 <div class="target">
     <div class="target-body">
-        <form (ngSubmit)="next( form )" #form="ngForm" >
-            <label for="pregunta" class="input input-gold fade" *ngIf="position == 1">
-                <span class="icon icon-search"></span>
-                <input  type="text" 
-                        required
-                        placeholder="pregunta a un abogado experto" 
-                        id="pregunta" 
-                        [(ngModel)]="question.text"
-                        name="text"
-                        >
-            </label>
+        
+        <form (ngSubmit)="next( form )" #form="ngForm">
+            <div *ngIf="!loading; else loaded">
+                <label for="pregunta" class="input input-gold fade" *ngIf="position == 1">
+                    <span class="icon icon-search"></span>
+                    <input type="text" required placeholder="pregunta a un abogado experto" id="pregunta"
+                        [(ngModel)]="question.text" name="text">
+                </label>
+            
+                <label for="email" class="input input-gold fade" *ngIf="position == 2">
+                    <span class="icon icon-mail"></span>
+                    <input type="email" placeholder="Introduce tu correo electronico" id="correo" required
+                        [(ngModel)]="people.email" name="email">
+                </label>
 
-            <label for="email" class="input input-gold fade" *ngIf="position == 2">
-                <span class="icon icon-mail"></span>
-                <input type="email"
-                        placeholder="Introduce tu correo electronico"
-                        id="correo"
-                        required
-                        [(ngModel)]="people.email"
-                        name="email">
-            </label>
+                <div class="alert alert-green" *ngIf="position == 3 && send == true">
+                    <span class="icon icon-check"></span>
+                    <p class="text">Proceso exitoso. Espera a que seas contactado por un abogado</p>
+                </div>
+            
+                <div class="alert alert-red" *ngIf="position == 3 && send == false">
+                    <span class="icon icon-exclamation"></span>
+                    <p class="text">Ha ocurrido un error durante el envio</p>
+                </div>
+            </div>
 
-            <div class="alert alert-success fade m-0 pb-0 pt-2 pl-2" *ngIf="position == 3 && send == true">
-                <p><span class="icon-check"></span> Su pregunta ha sido enviada</p>
-            </div>
-            <div class="alert alert-danger fade m-0 pb-0 pt-2 pl-2" *ngIf="position == 3 && send == false">
-                <p><span class="icon-x"></span> Ha ocurrido un error al enviar su pregunta</p>
-            </div>
+            <ng-template #loaded>
+                <app-loading></app-loading>
+            </ng-template>
+
         </form>
-
-    
         <b class="text text-blue text-center d-block mb-2">Tu pregunta sera publicada de forma anonima</b>
 
         <div class="row p-0 m-0">
