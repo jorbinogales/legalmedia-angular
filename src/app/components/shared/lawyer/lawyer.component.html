@@ -7,6 +7,8 @@
                 onerror="this.src='assets/img/avatar.svg';">
         </div>
         <div class="col-9">
+            <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" class="text text-gold"></rating>
+
             <h4 class="msg-title">{{ lawyer.first_name }} {{  lawyer.last_name }}</h4>
 
             <div *ngIf="lawyer.skills.length != 0; else  withOutSkills">
@@ -23,6 +25,7 @@
                     Sin especializacion
                 </span>
             </ng-template>
+            <p class="text text-white">Preguntas Respondidas:  {{ lawyer.answerings.length }}</p>
         </div>
     </div>
 </div>

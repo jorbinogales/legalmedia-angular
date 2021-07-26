@@ -16,15 +16,15 @@ export class QuestionService {
       'people_id': Question.id,
       'text': Question.text
     }
-    return this.http.post(environment.apiUrl + '/question', send).toPromise();
+    return this.http.post(environment.LawyerApiUrl + '/api/question', send).toPromise();
   }
 
   countQuestion() {
-    return this.http.get(environment.apiUrl + '/question/count').toPromise();
+    return this.http.get(environment.LawyerApiUrl + '/api/question/count').toPromise();
   }
 
   async lastQuestion() {
-    return this.http.get(environment.apiUrl + '/question/last').toPromise();
+    return this.http.get(environment.LawyerApiUrl + '/api/question/last').toPromise();
   }
 
 }

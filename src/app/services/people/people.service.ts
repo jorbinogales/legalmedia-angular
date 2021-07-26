@@ -19,7 +19,7 @@ export class PeopleService {
       'email': People.email,
     }
 
-    return this.http.post(environment.apiUrl + '/people', send).toPromise();
+    return this.http.post(environment.LawyerApiUrl + '/api/people', send).toPromise();
   }
   
 }

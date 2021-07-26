@@ -9,6 +9,7 @@ export class LawyerModel{
     picture: string = '';
     rewards?: any;
     skills?: SkillModel;
+    answerings?: any;
 
     constructor() {
         

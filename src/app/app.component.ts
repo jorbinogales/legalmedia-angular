@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
     this.breakpoint = (window.innerWidth <= 400) ? 1 : 6;
   }
 
+  logout() {
+    localStorage.removeItem('token');
+  }
+
   onResize(event: any) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 6;
   }

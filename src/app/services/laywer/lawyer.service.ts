@@ -13,7 +13,7 @@ export class LawyerService {
 
   getLawyer() {
 
-    return this.http.get(environment.apiUrl + '/lawyer').pipe(
+    return this.http.get(environment.LawyerApiUrl + '/api/lawyer').pipe(
       map(
         this.lawyersArr,
         delay(0)
@@ -23,7 +23,7 @@ export class LawyerService {
   }
 
   async searchLawyer(Lawyer: Object) {
-    return this.http.post(environment.apiUrl + '/lawyer/search', Lawyer).pipe(
+    return this.http.post(environment.LawyerApiUrl + '/api/lawyer/search', Lawyer).pipe(
       map(
         this.lawyersArr,
         delay(0),

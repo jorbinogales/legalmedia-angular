@@ -26,6 +26,7 @@ export class LawyersComponent implements OnInit {
 
     this.__lawyerService.getLawyer().subscribe(resp => {
       this.lawyers = resp;
+      console.log(this.lawyers);
       this.loading = false;
     })
 

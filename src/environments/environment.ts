@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://127.0.0.1:8000/api',
-  storage: 'http://127.0.0.1:8000/image/'
+  client_id: 1,
+  passport: 'WACxdysPXM8gHzRmCKtRwmvJi9SGeCRMindt9KIJ',
+  LawyerApiUrl: 'http://127.0.0.1:8000',
+  userApiUrl: 'http://127.0.0.2:8000',
+  storage: 'http://127.0.0.1:8000/image'
 };
 
 /*

@@ -14,7 +14,7 @@ export class ListSkillService {
   
   getListSkill() {
 
-    return this.http.get(environment.apiUrl + '/listskill').pipe(
+    return this.http.get(environment.LawyerApiUrl + '/api/listskill').pipe(
       map(
         this.listSkillArr,
         delay(0)
