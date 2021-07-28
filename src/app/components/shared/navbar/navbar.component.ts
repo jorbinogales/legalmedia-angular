@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) { }
 
  ngOnInit() {
-    this.loggedIn = localStorage.getItem('token') !== null;
+   this.loggedIn = localStorage.getItem('token') !== null;
  }
   
   logout() {
@@ -22,5 +22,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
+
+  
 
 }

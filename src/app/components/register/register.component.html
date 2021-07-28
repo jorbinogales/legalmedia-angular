@@ -1,0 +1,73 @@
+<div class="row p-0 m-0">
+    <div class="col-12">
+        <div class="mt-5">
+            <img src="assets/img/logo.png" alt="" class="d-block w-50 m-auto">
+        </div>
+    </div>
+</div>
+<div class="bg gradient-white">
+    <div class="row p-5 m-0">
+        <a class="btn btn-gold d-block m-auto" [routerLink]="['']" style="max-width: 200px;">REGRESAR</a>
+    </div>
+</div>
+<div class="container-fluid p-0 m-0 bg white">
+    <div class="target">
+        <div class="target-body pb-5">
+            <p class="text text-blue-strong text-center">Registrate para escuchar nuestras ofertas</p>
+
+            <div *ngIf="results != null && results.code; else success">
+                <div class="alert alert-success">
+                    <span class="icon icon-check"></span>
+                    <p class="text">Agregado a la lista de Abogados, podra recibir los correos de futuros clientes</p>
+                </div>
+            </div>
+
+            <ng-template #success>
+                <form [formGroup]="form" (submit)="submit()">
+                    <div class="m-auto d-block" *ngIf="!sending; else loading">
+                        <span *ngIf="results != null && results.email">
+                            <div class="alert alert-red">
+                                <p class="text">El Email ya se encuentra en uso</p>
+                            </div>
+                        </span>
+                        <label for="email" class="input input-blue-strong fade mt-3"
+                            [ngClass]="{ 'input-error': results != null && results.email}">
+                            <span class="icon icon-mail"></span>
+                            <input type="email" required placeholder="Correo" id="email" formControlName="email">
+                        </label>
+                        <label for="nombre" class="input input-blue-strong fade mt-3">
+                            <input type="text" required placeholder="Nombre" id="nombre" formControlName="first_name">
+                        </label>
+                        <label for="apellido" class="input input-blue-strong fade mt-3">
+                            <input type="text" required placeholder="Apellido" id="apellido" formControlName="last_name">
+                        </label>
+                        <label for="date" class="input input-blue-strong fade mt-3">
+                            <span class="icon icon-calendar"></span>
+                            <input type="date" required placeholder="Fecha de nacimiento" id="date" formControlName="birth">
+                        </label>
+                
+                
+                        <hr class="mb-5">
+                        <div class="row p-0 m-0">
+                            <div class="col-12 p-0 m-0">
+                                <div class="line line-gold position-absolute h-50 l-0 r-0 b-0 d-block m-auto"
+                                    style="top:10px; opacity: .5;">
+                                </div>
+                                <input type="submit" class="btn btn-blue-strong m-auto d-block position-relative"
+                                    style="max-width:300px;" value="REGISTRARSE">
+                            </div>
+                        </div>
+                
+                    </div>
+                
+                    <ng-template #loading>
+                        <app-loading></app-loading>
+                    </ng-template>
+                </form>
+            </ng-template>
+
+           
+            
+        </div>
+    </div>
+</div>

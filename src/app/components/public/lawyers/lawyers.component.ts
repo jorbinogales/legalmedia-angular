@@ -25,16 +25,17 @@ export class LawyersComponent implements OnInit {
     });
 
     this.__lawyerService.getLawyer().subscribe(resp => {
+
       this.lawyers = resp;
-      console.log(this.lawyers);
       this.loading = false;
-    })
+
+    });
 
   }
 
   async searchLawyer() {
-    this.loading = true;
-    await (await this.__lawyerService.searchLawyer(this.search)).subscribe(resp => {
+      this.loading = true;
+    (await this.__lawyerService.searchLawyer(this.search)).subscribe(resp => {
       this.lawyers = resp;
       this.loading = false;
     });

@@ -19,9 +19,9 @@ export class PreguntasComponent implements OnInit {
 
   async getLastPreguntas() {
     this.__questionService.lastQuestion()
-      .then(response => {
+      .then((response:any) => {
         
-        this.preguntas = response;
+        this.preguntas = response.data;
 
       });
   }

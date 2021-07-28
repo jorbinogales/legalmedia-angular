@@ -1,35 +1,14 @@
-<div class="row p-5 m-0">
-    <div class="col-12 p-3">
-
-        <a class="btn d-block btn-white shadow" 
-        [routerLink]="['ingresar']" 
-        routerLinkActive="btn-blue-strong"
-        *ngIf="!loggedIn">
-            INICIAR SESION
-        </a>
-        <a class="btn d-block btn-white shadow" 
-            [routerLink]="['ingresar']" 
-            routerLinkActive="btn-blue-strong"
-            *ngIf="loggedIn"
-            (click)="logout()">
-            SALIR
-        </a>
-    </div>
-    <div class="col-12 p-3">
-        <a class="btn d-block btn-white shadow" 
-        [routerLink]="['registrarse']" 
-        routerLinkActive="btn-blue-strong">
-            REGISTRARSE
-        </a>
-
-        
-    </div>
-</div>
 <div class="row p-0 m-0">
     <div class="col-12">
         <div class="mt-5">
             <img src="assets/img/logo.png" alt="" class="d-block w-50 m-auto">
         </div>
+        <a  class="btn btn-white d-block m-auto text-center shadow" 
+            [routerLink]="['registrarse']" 
+            routerLinkActive="btn-blue-strong"
+            style="max-width: 200px;">
+            REGISTRARSE
+        </a>
     </div>
 </div>
 <div class="bg gradient-gold">

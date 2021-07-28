@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-secure',
@@ -21,7 +22,7 @@ export class SecureComponent implements OnInit {
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
 
-    this.http.get('http://127.0.0.1:8000/api/user', {headers: header}).subscribe(
+    this.http.get(environment.userApiUrl + '/api/user', {headers: header}).subscribe(
       (result: any) => {
         this.user = result;
       },

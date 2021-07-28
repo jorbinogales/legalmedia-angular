@@ -8,7 +8,7 @@
     <div class="col-12">
 
         <carousel>
-            <div class="carousel-cell" *ngFor="let pregunta of preguntas.data, index as i">
+            <div class="carousel-cell" *ngFor="let pregunta of preguntas, index as i">
                 <div class="msg msg-blue border-radius mt-5">
                     <div class="msg-body">
                         <p>{{ pregunta.text }}</p>

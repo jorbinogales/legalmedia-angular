@@ -31,6 +31,20 @@ export class LawyerService {
      )
   }
 
+  async storeLawyer(FormData: LawyerModel): Promise<any> {
+    let resp: any;
+    await this.http.post(environment.LawyerApiUrl + '/api/lawyer', FormData)
+      .toPromise()
+      .then((result: any) => {
+        resp = result;
+      })
+      .catch((result: any) => {
+        resp = result.error.errors;
+      });
+    
+    return resp;
+  }
+
   private lawyersArr(LawyerObj: any) {
 
     const lawyers: LawyerModel[] = [];

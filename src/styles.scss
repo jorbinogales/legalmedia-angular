@@ -3,6 +3,8 @@
   --bg-blue: #003656;
   --bg-gold: #a67c00;
   --bg-gray: rgba(0, 39, 63, 0.25);
+  --bg-danger: #dc3545;
+  --bg-success: #28a745;
   --radius: 25px;
 }
 
@@ -11,13 +13,21 @@ body {
   margin: auto;
 }
 
+input:-internal-autofill-selected {
+  background-color: -internal-light-dark(
+    rgb(55, 255, 255),
+    rgb(259, 59, 59)
+  ) !important;
+  appearance: inherit !important;
+}
+
 .bg {
   &.gradient-gold {
     background: linear-gradient(to bottom, white 0%, var(--bg-gold) 100%);
   }
 
   &.gradient-white {
-    background: linear-gradient(to top, white 50%, #c9d4db 50%);
+    background: linear-gradient(to bottom, white 0%, #c9d4db 100%);
   }
 
   &.gold {
@@ -28,6 +38,10 @@ body {
   }
   &.blue-strong {
     background-color: var(--bg-blue-strong);
+  }
+
+  &.white {
+    background-color: #c9d4db;
   }
 }
 
@@ -126,6 +140,10 @@ body {
     width: 90%;
   }
 
+  input::placeholder {
+    background: transparent;
+  }
+
   position: relative;
   display: block;
   width: 100%;
@@ -133,8 +151,23 @@ body {
   border-radius: 25px;
   color: white;
 
+  &.input-error {
+    border: 2px solid var(--bg-danger);
+    color: var(--bg-danger);
+  }
+
   &.input-gold {
     background-color: var(--bg-gold);
+    input {
+      color: white !important;
+      &::placeholder {
+        color: white;
+      }
+    }
+  }
+
+  &.input-blue-strong {
+    background-color: var(--bg-blue-strong);
     input {
       color: white !important;
       &::placeholder {
@@ -160,6 +193,9 @@ body {
   }
   &.line-blue-strong {
     background-color: var(--bg-blue-strong);
+  }
+  &.line-gold {
+    background-color: var(--bg-gold);
   }
 }
 
@@ -225,11 +261,11 @@ body {
   transform: scale(0.5);
   animation: alert 0.5s ease-in-out forwards;
   &.alert-red {
-    background-color: #dc3545;
+    background-color: var(--bg-danger);
     color: white;
   }
   &.alert-green {
-    background-color: #28a745;
+    background-color: var(--bg-success);
     color: white;
   }
   .icon {
@@ -261,6 +297,3 @@ body {
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
-
-/* Importing Datepicker SCSS file. */
-@import "~ngx-bootstrap/datepicker/bs-datepicker";

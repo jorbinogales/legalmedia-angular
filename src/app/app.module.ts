@@ -20,7 +20,7 @@ import { PublicModule } from './components/public/public.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SecureComponent,
+    SecureComponent
   ],
   imports: [
     BrowserModule,
