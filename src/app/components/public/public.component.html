@@ -1,7 +1,63 @@
-<app-navbar></app-navbar>
-<div class="container-fluid p-0 m-0 bg gold">
-    <router-outlet></router-outlet>
+
+<!-- HEADER ELEMENT  -->
+<div class="d-none d-lg-block">
+    <app-header></app-header>
 </div>
 
-<app-preguntas></app-preguntas>
+<!-- NAVBAR ELEMENT  -->
+<div class="d-block d-lg-none">
+    <app-navbar></app-navbar>
+</div>
+
+<!-- CONTAINER FLUID  -->
+<div class="container-fluid p-0 m-0" id="container">
+
+    <div class="row p-0 pt-4 m-0">
+        <!-- QUESTION  -->
+        <div class="col-12 col-lg-8 p-0">
+            <div class="m-auto w-100 d-none d-lg-block">
+                <b class="text-center text text-blue d-block">
+                    <span class="baged baged-blue-strong pr-3 pl-3 i">127</span> Abogados en linea
+                </b>
+            </div>
+            <router-outlet></router-outlet>
+            <app-preguntas></app-preguntas>
+        </div>
+        <!-- LAWYER ELEMENT  -->
+        <div class="d-none d-lg-block col-0 col-lg-4">
+            <b class="text text-blue text-center d-block">Abogados mas activos</b>
+            <div *ngIf="!loading; else lawyersTemplate">
+                <div class="row p-0 m-0" *ngIf="lawyers.length > 0; else noResults">
+                    <app-lawyer 
+                    [lawyer]="i" 
+                    [skills]="listSkill" 
+                    [origin]="'home'"
+                    class="col-12" 
+                    *ngFor="let i of lawyers">
+                    </app-lawyer>
+                </div>
+                <ng-template #noResults>
+                    <div class="alert alert-red">
+                        <span class="icon icon-exclamation"></span>
+                        <p class="text">No se han encontrado resultados</p>
+                    </div>
+                </ng-template>
+            </div>
+            <ng-template #lawyersTemplate>
+                <app-loading></app-loading>
+            </ng-template>
+            <a [routerLink]="['abogados']" class="btn btn-gold d-block m-auto w-75">VER LISTA DE ABOGADOS</a>
+            <p class="text text-blue text-center d-block">100% verificados</p>
+
+            <div class="d-block m-auto">
+                <h5 class="text text-white text-center">¿Eres abogado? <br>
+                     Conecta con potenciales clientes</h5>
+                    <a class="btn btn-gold d-block w-50 m-auto" [routerLink]="['/registrarse']">REGÍSTRATE</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 <app-footer></app-footer>

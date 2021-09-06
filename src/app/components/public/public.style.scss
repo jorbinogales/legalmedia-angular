@@ -1,0 +1,9 @@
+#container{
+    background: var(--bg-gold);
+}
+
+@media only screen and (min-width: 975px){
+    #container{
+       background: linear-gradient(to right, white 0%, var(--bg-transparent) 100%, var(--bg-blue-strong) 50%);
+    }
+}

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecureComponent } from './secure.component';
+import { LawyerProfileComponent } from './lawyer-profile.component';
 
-describe('SecureComponent', () => {
-  let component: SecureComponent;
-  let fixture: ComponentFixture<SecureComponent>;
+describe('LawyerProfileComponent', () => {
+  let component: LawyerProfileComponent;
+  let fixture: ComponentFixture<LawyerProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecureComponent ]
+      declarations: [ LawyerProfileComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SecureComponent);
+    fixture = TestBed.createComponent(LawyerProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

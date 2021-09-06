@@ -41,9 +41,6 @@
 .icon-android:before {
   content: "\61";
 }
-.icon-ambulance:before {
-  content: "\62";
-}
 .icon-area-chart:before {
   content: "\63";
 }
@@ -1376,9 +1373,6 @@
 .icon-arrow-down:before {
   content: "\e15f";
 }
-.icon-angle-double-down:before {
-  content: "\e160";
-}
 .icon-angellist:before {
   content: "\e161";
 }
@@ -1747,9 +1741,6 @@
 }
 .icon-moon-o:before {
   content: "\e1db";
-}
-.icon-amazon:before {
-  content: "\e1dc";
 }
 .icon-angle-right:before {
   content: "\e1dd";
@@ -2521,4 +2512,25 @@
 }
 .icon-cog-1:before {
   content: "\e2df";
+}
+.icon-linkedin:before {
+  content: "\e2db";
+}
+.icon-linkedin-square:before {
+  content: "\e2dc";
+}
+.icon-behance:before {
+  content: "\e2e0";
+}
+.icon-google-plus:before {
+  content: "\e2e1";
+}
+.icon-google-plus:before {
+  content: "\e2e1";
+}
+.icon-dribble:before {
+  content: "\e2e2";
+}
+.icon-dribble:before {
+  content: "\62";
 }

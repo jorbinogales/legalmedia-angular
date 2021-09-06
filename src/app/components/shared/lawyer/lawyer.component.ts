@@ -3,7 +3,8 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-lawyer',
-  templateUrl: './lawyer.component.html'
+  templateUrl: './lawyer.component.html',
+  styleUrls: ['./lawyer.style.scss']
 })
 export class LawyerComponent implements OnInit {
   
@@ -12,6 +13,7 @@ export class LawyerComponent implements OnInit {
   rate = -1;
   isReadonly = true;
 
+  @Input() origin: string = '';
   @Input() lawyer: any = {};
   @Input() skills: any = {};
   
@@ -21,16 +23,15 @@ export class LawyerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    console.log(this.lawyer);
     let fiveStar = 0;
     let fourStar = 0;
     let threeStar = 0;
     let twoStar = 0;
     let OneStar = 0;
-
     this.lawyer.rewards.forEach((element:any) => {
 
-      switch (element.unid) {
+      switch (parseInt(element.unid)) {
         case 1:
           OneStar++;
           break;

@@ -25,12 +25,14 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { LoadingComponent } from '../shared/loading/loading.component';
 import { LawyersComponent } from './lawyers/lawyers.component';
 import { RegisterComponent } from '../register/register.component';
-
+import { HeaderComponent } from '../shared/header/header.component';
+import { LawyerProfileComponent } from './lawyer-profile/lawyer-profile.component';
 
 
 @NgModule({
   declarations: [
     PublicComponent,
+    HeaderComponent,
     HomeComponent,
     LawyerComponent,
     LawyersComponent,
@@ -38,7 +40,8 @@ import { RegisterComponent } from '../register/register.component';
     FooterComponent,
     PreguntasComponent,
     LoadingComponent,
-    RegisterComponent
+    RegisterComponent,
+    LawyerProfileComponent
   ],
   imports: [
     APP_ROUTING,

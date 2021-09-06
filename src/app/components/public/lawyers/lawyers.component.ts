@@ -6,7 +6,8 @@ import { ListSkillService } from 'src/app/services/listSkill/list-skill.service'
 
 @Component({
   selector: 'app-lawyers',
-  templateUrl: './lawyers.component.html'
+  templateUrl: './lawyers.component.html',
+  styleUrls: ['./lawyers.style.scss']
 })
 export class LawyersComponent implements OnInit {
 

@@ -1,11 +1,12 @@
-
 <div class="target">
     <div class="target-body">
         
-        <form (ngSubmit)="next( form )" #form="ngForm">
+        <form (ngSubmit)="next( form )" #form="ngForm" class="position-relative" id="form">
             <div *ngIf="!loading; else loaded">
+                <div class="bg blue-strong line-strong d-none d-lg-block w-100 p-4">
+                </div>
                 <label for="pregunta" class="input input-gold fade" *ngIf="position == 1">
-                    <span class="icon icon-search"></span>
+                    <span class="icon icon-chat-alt-fill"></span>
                     <input type="text" required placeholder="pregunta a un abogado experto" id="pregunta"
                         [(ngModel)]="question.text" name="text">
                 </label>
@@ -32,7 +33,7 @@
             </ng-template>
 
         </form>
-        <b class="text text-blue text-center d-block mb-2">Tu pregunta sera publicada de forma anonima</b>
+        <b class="text text-blue text-center d-block mb-2 mt-lg-5">Tu pregunta sera publicada de forma anonima</b>
 
         <div class="row p-0 m-0">
             <div class="col-8">

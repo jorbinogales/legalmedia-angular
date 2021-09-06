@@ -3,11 +3,9 @@
     <p class="bg blue-strong d-block w-100 text-white text-right p-2 pr-5">Preguntas Recientes</p>
 </span>
 
-<div class="row p-0 m-0 bg gradient-white">
-
+<div class="row p-0 m-0 bg gradient-white" id="preguntas">
     <div class="col-12">
-
-        <carousel>
+        <carousel class="pr-5 pl-5">
             <div class="carousel-cell" *ngFor="let pregunta of preguntas, index as i">
                 <div class="msg msg-blue border-radius mt-5">
                     <div class="msg-body">
@@ -16,6 +14,5 @@
                 </div>
             </div>
         </carousel>
- 
     </div>
 </div>

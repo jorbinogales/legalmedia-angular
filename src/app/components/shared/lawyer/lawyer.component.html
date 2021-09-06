@@ -1,31 +1,36 @@
-<div class="msg msg-blue border-radius m-2 width-full fade fadeIn hover">
+<div class="msg msg-blue border-radius m-2 width-full fade fadeIn hover lawyer" [routerLink]="['/lawyer/', lawyer.user_id.email]">
     <div class="row">
         <div class="col-3">
-            <img
-                class="msg-img" 
-                src="{{lawyer.picture ? env.storage + '/lawyers/' + lawyer.picture : 'assets/img/avatar.png'}}" 
-                onerror="this.src='assets/img/avatar.svg';">
+            <div *ngIf="lawyer.user_id.provider; else pictureTemplate">
+                <img class="msg-img" src="{{lawyer.picture ? env.storage + '/lawyers/' + lawyer.picture : 'assets/img/avatar.png'}}"
+                    onerror="this.src='assets/img/avatar.svg';">
+            </div>
+            <ng-template #pictureTemplate>
+                <img src="{{ lawyer.picture }}" class="msg-img" alt="" onerror="this.src='assets/img/avatar.svg';">
+            </ng-template>
         </div>
         <div class="col-9">
             <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" class="text text-gold"></rating>
 
-            <h4 class="msg-title">{{ lawyer.first_name }} {{  lawyer.last_name }}</h4>
+            <h4 class="msg-title">{{ lawyer.name }}</h4>
 
-            <div *ngIf="lawyer.skills.length != 0; else  withOutSkills">
-                <span  *ngFor="let lawyerSkill of lawyer.skills" class="baged baged-white right">
-                    <div *ngFor="let skill of skills">
-                        <div *ngIf="lawyerSkill.list_skill_id == skill.id">
+            <div *ngIf="origin != 'home'">
+                <div *ngIf="lawyer.skills.length != 0; else  withOutSkills">
+                    <span *ngFor="let lawyerSkill of lawyer.skills" class="baged baged-white right">
+                        <div *ngFor="let skill of skills">
+                            <div *ngIf="lawyerSkill.list_skill_id == skill.id">
                                 {{ skill.text }}
+                            </div>
                         </div>
-                    </div>
-                </span>
+                    </span>
+                </div>
+                <ng-template #withOutSkills>
+                    <span class="baged baged-white right">
+                        Sin especializacion
+                    </span>
+                </ng-template>
+                <p class="text text-white">Preguntas Respondidas: {{ lawyer.answerings.length }}</p>
             </div>
-            <ng-template #withOutSkills>
-                <span class="baged baged-white right">
-                    Sin especializacion
-                </span>
-            </ng-template>
-            <p class="text text-white">Preguntas Respondidas:  {{ lawyer.answerings.length }}</p>
         </div>
     </div>
 </div>

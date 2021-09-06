@@ -13,7 +13,6 @@ export class ListSkillService {
   constructor(private http: HttpClient) { }
   
   getListSkill() {
-
     return this.http.get(environment.LawyerApiUrl + '/api/listskill').pipe(
       map(
         this.listSkillArr,
@@ -24,15 +23,10 @@ export class ListSkillService {
 
   private listSkillArr(listSkillObj:any) {
     const listSkills: listSkillModel[] = [];
-
     Object.keys(listSkillObj.data).forEach(key => {
-
       const skill: listSkillModel = listSkillObj.data[key];
-      
       listSkills.push(skill);
-
     });
-
     return listSkills;
   }
 }

@@ -3,18 +3,32 @@
         <div class="mt-5">
             <img src="assets/img/logo.png" alt="" class="d-block w-50 m-auto">
         </div>
-        <a  class="btn btn-white d-block m-auto text-center shadow" 
-            [routerLink]="['registrarse']" 
-            routerLinkActive="btn-blue-strong"
-            style="max-width: 200px;">
-            REGISTRARSE
-        </a>
+        <div class="row w-100 m-auto mt-3">
+            <div class="col-6">
+                <p class="text text-blue-strong text-right d-block font-weight-bold">
+                    ¿Eres abogado? Regístrate
+                </p>
+            </div>
+            <div class="col-6">
+                <a class="position-relative 
+                         btn btn-white m-auto 
+                         text-center 
+                         shadow
+                         d-block" 
+                    [routerLink]="['registrarse']"
+                    style="max-width:100px !important"
+                    routerLinkActive="btn-blue-strong">
+                    Registro
+                </a>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="bg gradient-gold">
     <div class="row w-60 m-auto pt-5 pb-2">
         <div class="col-6">
-            <a class="btn w-100 d-block btn-white shadow" 
+            <a class="btn p-3 w-75 d-block btn-white shadow ml-auto" 
             [routerLink]="['inicio']"
             routerLinkActive="btn-blue-strong"
             >
@@ -22,7 +36,7 @@
             </a>
         </div>
         <div class="col-6">
-            <a class="btn  w-100 d-block btn-white shadow" 
+            <a class="btn p-3 w-75 d-block btn-white shadow mr-auto" 
             [routerLink]="['abogados']"
             routerLinkActive="btn-blue-strong"
             >
@@ -33,7 +47,7 @@
         <div class="col-12 mt-3 mb-3">
             <div class="d-block m-auto mt-5 mb-5 w-70 ">
                 <b class="text-center text-blue d-block text-center">
-                    <span class="baged baged-blue-strong">{{ laywers }}</span> Abogados en linea
+                    <span class="baged baged-blue-strong pr-3 pl-3 i">{{ laywers }}</span> Abogados en linea
                 </b>
             </div>
         

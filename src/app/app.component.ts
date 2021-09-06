@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,18 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private readonly httpRouter: Router){}
+
   breakpoint: number = 0;
   title = 'legalmedia';
-  
+  token: any;
+
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 400) ? 1 : 6;
+    this.token = localStorage.getItem('token');
+    if (this.token) {
+      this.httpRouter.navigate(['cuenta']);
+    }
   }
 
   logout() {
     localStorage.removeItem('token');
   }
 
-  onResize(event: any) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 6;
-  }
 }

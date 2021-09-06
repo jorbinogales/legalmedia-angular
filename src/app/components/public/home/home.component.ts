@@ -1,22 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { QuestionService } from 'src/app/services/question/question.service';
 import { QuestionModel } from 'src/app/models/question.model';
-
 import { PeopleService } from 'src/app/services/people/people.service';
 import { PeopleModel } from 'src/app/models/people.model';
-
-
 import { NgForm } from '@angular/forms';
-import { environment } from 'src/environments/environment';
 
 
 
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.style.scss'],
 })
 export class HomeComponent implements OnInit {
 
@@ -29,7 +24,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private __questionService: QuestionService,
               private __peopleService: PeopleService) {
-    console.log(environment.production);
   }
 
   ngOnInit(){

@@ -1,0 +1,50 @@
+.loading {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: auto;
+}
+
+.loading .circle {
+  position: relative;
+  display: block;
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 100%;
+  border: 5px groove transparent;
+  border-top-color: var(--bg-gold);
+  -webkit-animation: rotate 1s ease-in-out infinite;
+          animation: rotate 1s ease-in-out infinite;
+}
+
+.loading p {
+  color: var(--bg-gold);
+  font-size: 15px;
+  display: block;
+  text-align: center;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=loading.component.css.map */

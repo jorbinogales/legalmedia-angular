@@ -5,11 +5,11 @@
   --bg-gray: rgba(0, 39, 63, 0.25);
   --bg-danger: #dc3545;
   --bg-success: #28a745;
+  --bg-transparent: #ADAA88;
   --radius: 25px;
 }
 
 body {
-  max-width: 568px;
   margin: auto;
 }
 
@@ -26,8 +26,16 @@ input:-internal-autofill-selected {
     background: linear-gradient(to bottom, white 0%, var(--bg-gold) 100%);
   }
 
+  &.gradient-blue-strong {
+    background: linear-gradient(to left, white 0%, var(--bg-blue-strong) 100%);
+  }
+
   &.gradient-white {
     background: linear-gradient(to bottom, white 0%, #c9d4db 100%);
+  }
+
+  &.gradient-transparent{
+    background: linear-gradient(to left, white 0%, var(--bg-transparent) 50%, var(--bg-blue-strong) 100%);
   }
 
   &.gold {
@@ -289,6 +297,12 @@ input:-internal-autofill-selected {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.float-right{
+  position:absolute;
+  top:5px;
+  right:5px;
 }
 
 .width-full {
